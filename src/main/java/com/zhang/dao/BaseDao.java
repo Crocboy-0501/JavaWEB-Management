@@ -40,6 +40,7 @@ public class BaseDao {
             connection = DriverManager.getConnection(url, username, password);
         }catch (Exception e){
             e.printStackTrace();
+            System.out.println("i am a breakpoint");
         }
         return connection;
     }

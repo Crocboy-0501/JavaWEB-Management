@@ -9,6 +9,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDaoImpl implements UserDao{
+
+    //得到要登录的用户信息
     @Override
     public User getLoginUser(Connection connection, String userCode) {
         PreparedStatement pstm = null;
@@ -35,6 +37,8 @@ public class UserDaoImpl implements UserDao{
                     user.setBirthday(rs.getDate("birthday"));
 
                 }
+
+                BaseDao.closeResource(null, pstm, rs);
             }
             catch (SQLException e){
                 e.printStackTrace();
@@ -43,7 +47,7 @@ public class UserDaoImpl implements UserDao{
 
 
 
-        return null;
+        return user;
     }
 
 }

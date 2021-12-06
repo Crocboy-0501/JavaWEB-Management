@@ -4,7 +4,7 @@ import com.zhang.pojo.User;
 
 import java.sql.Connection;
 
-interface UserDao {
+public interface UserDao {
     //得到要登录的用户
-    User getLoginUser(Connection connection, String userCode);
+    public User getLoginUser(Connection connection, String userCode);
 }
