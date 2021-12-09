@@ -1,5 +1,5 @@
 package com.zhang.dao;
-
+import java.lang.Class;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.*;
@@ -26,7 +26,7 @@ public class BaseDao {
             e.printStackTrace();
         }
 
-        driver = properties.getProperty("diver");
+        driver = properties.getProperty("driver");
         url = properties.getProperty("url");
         username = properties.getProperty("username");
         password = properties.getProperty("password");
@@ -36,7 +36,10 @@ public class BaseDao {
     public static Connection getConnection(){
         Connection connection = null;
         try{
+            //"com.mysql.jdbc.Driver".getClass();
+            System.out.println(driver + url + username + password);
             Class.forName(driver);
+            System.out.println("i'm a breakpoint111");
             connection = DriverManager.getConnection(url, username, password);
         }catch (Exception e){
             e.printStackTrace();
@@ -45,6 +48,9 @@ public class BaseDao {
         return connection;
     }
 
+
+
+
     //编写查询公共方法
     public static ResultSet execute(Connection connection, String sql, Object[] params, ResultSet resultSet, PreparedStatement preparedStatement) throws SQLException {
         preparedStatement = connection.prepareStatement(sql);
@@ -52,9 +58,10 @@ public class BaseDao {
             //setObject, 占位符从1开始，但是我们的数组是从0开始
             preparedStatement.setObject(i+1, params[i]);
         }
-        resultSet = preparedStatement.executeQuery(sql);
+        resultSet = preparedStatement.executeQuery();
         return resultSet;
     }
+
     //编写增删改公共方法
     public static int execute(Connection connection, String sql, Object[] params, PreparedStatement preparedStatement) throws SQLException {
         preparedStatement = connection.prepareStatement(sql);

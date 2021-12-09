@@ -35,7 +35,7 @@
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
-      <version>8.0.11</version>
+      <version>8.0.25</version>
     </dependency>
 
     <dependency>
@@ -49,12 +49,14 @@
       <artifactId>standard</artifactId>
       <version>1.1.2</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/junit/junit -->
     <dependency>
-      <groupId>JUnit</groupId>
-      <artifactId>JUnit</artifactId>
-      <version>4.11</version>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
+
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter</artifactId>
