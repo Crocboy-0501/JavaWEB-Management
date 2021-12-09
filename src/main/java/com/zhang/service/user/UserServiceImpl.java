@@ -35,11 +35,6 @@ public class UserServiceImpl implements UserService{
         }
         return user;
     }
-    @Test
-    public void test(){
-        UserServiceImpl userService = new UserServiceImpl();
-        User user = userService.Login("xiaoxiao", "990724");
-        System.out.println(user.getPassword());
-    }
+
 
 }
